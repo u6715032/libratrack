@@ -1,36 +1,150 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+LibraTrack – Library Management System
+Team Members
 
-## Getting Started
+Thaw Linn Oo (6715032)
 
-First, run the development server:
+Sai Aik Seng Hein Seng (6511150)
 
-```bash
+Nay Thura Aung (6715030)
+
+
+Project Description
+
+LibraTrack is a web-based Library Management System developed using Next.js and MongoDB.
+
+The system allows administrators to:
+
+Manage books (Add, Edit, Delete)
+
+Manage members (Add, Edit, Delete)
+
+Record book borrow transactions
+
+Process book returns
+
+View dashboard statistics
+
+This project fulfills the requirement of implementing at least three CRUD data models and deploying the application on an Azure Virtual Machine.
+
+Tech Stack
+
+Frontend & Backend: Next.js (App Router)
+
+Database: MongoDB
+
+ORM: Mongoose
+
+Deployment: Docker + Azure Virtual Machine (VM)
+
+Styling: Tailwind CSS
+
+Data Models (3 CRUD Entities)
+1. Book
+
+title
+
+isbn
+
+category
+
+author
+
+publishedYear
+
+status (available / borrowed)
+
+2. Member
+
+name
+
+email
+
+phone
+
+address
+
+membershipDate
+
+3. BorrowRecord
+
+bookId
+
+memberId
+
+borrowDate
+
+returnDate
+
+status
+
+-Features
+
+Full CRUD operations for Books
+
+Full CRUD operations for Members
+
+Borrow book functionality (automatically updates book status)
+
+Return book functionality
+
+Dashboard with:
+
+Total books
+
+Available books
+
+Borrowed books
+
+Total members
+
+Active borrows
+
+Production deployment on Azure VM using Docker
+
+-Production URL
+
+http://u6715032-vm01.southeastasia.cloudapp.azure.com
+
+📸 Screenshots
+
+
+![Dashboard] screenshots/Screenshot 2569-02-24 at 09.37.48.png
+![Books Page] screenshots/Screenshot 2569-02-24 at 09.37.58.png
+![Members Page] screenshots/Screenshot 2569-02-24 at 09.38.06.png
+![Borrow Page] screenshots/Screenshot 2569-02-24 at 09.38.13.png
+![Return Page] screenshots/Screenshot 2569-02-24 at 09.38.20.png
+
+-How to Run Locally
+
+Clone the repository
+
+git clone https://github.com/https://github.com/u6715032/libratrack.git
+cd libratrack
+
+Install dependencies
+
+npm install
+
+Create .env.local
+
+MONGODB_URI=mongodb://127.0.0.1:27017/libratrack
+
+Run development server
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Deployment (Azure VM + Docker)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Clone repository on VM
 
-## Learn More
+Create .env.local with:
 
-To learn more about Next.js, take a look at the following resources:
+MONGODB_URI=mongodb://mongo:27017/libratrack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Run:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+docker compose up -d --build
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Access via public DNS URL
